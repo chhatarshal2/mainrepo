@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
 <html >
 <head>
   <meta charset="UTF-8">
@@ -25,28 +26,29 @@
           <span class="logmod__heading-subtitle">Enter your personal details <strong>to create an acount</strong></span>
         </div>
         <div class="logmod__form">
-          <form accept-charset="utf-8" class="simform" action="SubmitLogin">
+        
+          <form method="POST" class="simform" action="SignUp">
             <div class="sminputs">
               <div class="input full">
                 <label class="string optional" for="user-name">Email*</label>
-                <input class="string optional" maxlength="255" id="user-email" placeholder="Email" type="email" size="50" />
+                <input  class="string optional" maxlength="255" id="user-email" placeholder="Email" type="text" size="50" />              
               </div>
             </div>
             <div class="sminputs">
               <div class="input string optional">
                 <label class="string optional" for="user-pw">Password *</label>
-                <input class="string optional" maxlength="255" id="user-pw" placeholder="Password" type="text" size="50" />
+                <input path="password" class="string optional" name="name" maxlength="255" id="user-pw" placeholder="Password" type="text" size="50" />
               </div>
               <div class="input string optional">
                 <label class="string optional" for="user-pw-repeat">Repeat password *</label>
-                <input class="string optional" maxlength="255" id="user-pw-repeat" placeholder="Repeat password" type="text" size="50" />
+                <input path="password" class="string optional" name="password" maxlength="255" id="user-pw-repeat" placeholder="Repeat password" type="text" size="50" />
               </div>
             </div>
             <div class="simform__actions">
-              <input class="sumbit" name="commit" type="submit" value="Create Account" />
+              <input class="sumbit"  type="submit" value="Create Account" path=""/>
               <span class="simform__actions-sidetext">By creating an account you agree to our <a class="special" href="#" target="_blank" role="link">Terms & Privacy</a></span>
             </div> 
-          </form>
+         </form>
         </div> 
         <div class="logmod__alter">
           <div class="logmod__alter-container">
@@ -75,25 +77,25 @@
           <span class="logmod__heading-subtitle">Enter your email and password <strong>to sign in</strong></span>
         </div> 
         <div class="logmod__form">
-          <form accept-charset="utf-8" class="simform" action="SubmitLogin">
+          <form accept-charset="utf-8" class="simform" action="SubmitLogin"  modelAttribute="user">
             <div class="sminputs">
               <div class="input full">
                 <label class="string optional" for="user-name">Email*</label>
-                <input class="string optional" maxlength="255" id="user-email" placeholder="Email" type="email" size="50" />
+                <input path="name" name="name" class="string optional" maxlength="255" id="user-email" placeholder="Email" type="text" size="50" />
               </div>
             </div>
             <div class="sminputs">
               <div class="input full">
                 <label class="string optional" for="user-pw">Password *</label>
-                <input class="string optional" maxlength="255" id="user-pw" placeholder="Password" type="password" size="50" />
+               <input  path="password" name="password" class="string optional" maxlength="255" id="user-pw" placeholder="Password" type="password" size="50" />
                 						<span class="hide-password">Show</span>
               </div>
             </div>
             <div class="simform__actions">
-              <input class="sumbit" name="commit" type="submit" value="Log In" />
+              <input class="sumbit" path="" name="commit" type="submit" value="Log In" />
               <span class="simform__actions-sidetext"><a class="special" role="link" href="#">Forgot your password?<br>Click here</a></span>
             </div> 
-          </form>
+         </form>
         </div> 
         <div class="logmod__alter">
           <div class="logmod__alter-container">

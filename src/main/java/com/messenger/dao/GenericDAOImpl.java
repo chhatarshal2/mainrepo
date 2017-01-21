@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.messenger.model.Person;
+import com.messenger.model.User;
 
 
 public class GenericDAOImpl<T> implements GenericDAO<T> {
@@ -110,7 +111,17 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
 					if(keySize>count) {
 						queryComplete=queryComplete+" and ";
 					}
-				} else if(properties.get(key) instanceof List) {
+				} 
+				else if(properties.get(key) instanceof Integer) {
+					if(!queryComplete.startsWith("from ")) {
+						queryComplete=queryComplete+"from "+className+" where ";
+					}		
+					queryComplete=queryComplete+key+"="+properties.get(key);
+					if(keySize>count) {
+						queryComplete=queryComplete+" and ";
+					}
+				} 
+				else if(properties.get(key) instanceof List) {
 					List<Object> valueList=(List<Object>)properties.get(key); 
 					int i=1;
 					for(Object vaue:valueList) {
@@ -119,21 +130,36 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
 							value=value+",";
 						}
 					}		
-				}
-				
+				}				
 							
 			}
 			count++;
 		}
 		if(className.equalsIgnoreCase("User")) {
 			System.out.println("Going......to.execute.......query......"+queryComplete);
-			return session.createQuery(queryComplete).list(); 
+			List<User> users= session.createQuery(queryComplete).list();
+			session.close();
+			System.out.println(users);
+			return (List<T>) users;
 		}
 		if(className.equalsIgnoreCase("Product")) {
 			System.out.println("Going......to.execute.......query......"+queryComplete);
-			return session.createQuery(queryComplete).list(); 
+			List<T> objectList=session.createQuery(queryComplete).list();
+			session.close();
+			return objectList; 
 		}
 		return null;
+	}
+
+	@Override
+	public void update(T p) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(p);
+		session.flush();
+		tx.commit();
+		session.close();
 	}
 	
 	

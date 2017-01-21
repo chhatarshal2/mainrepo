@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -15,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @Entity
 @Table(name="product")
-public class Product {
+public class Product implements Cloneable {
 	
 	private Integer productId;
 	private String name;
@@ -25,6 +26,25 @@ public class Product {
 	private String brand;
 	private User user;
 	private String url;
+	private Integer quantity;
+	private Boolean dispay;
+	
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public Boolean getDispay() {
+		return dispay;
+	}
+
+	public void setDispay(Boolean dispay) {
+		this.dispay = dispay;
+	}
+
 	public String getUrl() {
 		return url;
 	}
@@ -36,7 +56,7 @@ public class Product {
 	
 	
 	@ManyToOne
-	@JoinTable(name="userId")
+	@JoinColumn(name="userId")
 	public User getUser() {
 		return user;
 	}
@@ -94,4 +114,8 @@ public class Product {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	
+	public Object clone()throws CloneNotSupportedException{  
+		return super.clone();  
+		}  
 }

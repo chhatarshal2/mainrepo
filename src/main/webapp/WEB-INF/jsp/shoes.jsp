@@ -17,9 +17,28 @@
     <link href="<c:url value="/assets/ItemSlider/css/main-style.css" />" rel="stylesheet" />
     <!-- custom CSS here -->   
     <link href="<c:url value="/assets/css/style.css" />" rel="stylesheet" />
+    
+    
+        <!-- Bootstrap core CSS -->
+    
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="themes/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+    <!-- Custom styles for this template -->
+    
+    <link href="<c:url value="/assets/themes/assets/css/carousel.css" />" rel="stylesheet" />
+    <link href="<c:url value="/assets/thumbnail-slider.css" />" rel="stylesheet" />
+     <script src="<c:url value="/assets/thumbnail-slider.js" />" type="text/javascript"></script>
+    
 </head>
 <body>
-    <nav class="navbar navbar-default" role="navigation">
+   <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -29,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><strong>DIGI</strong> Shop</a>
+                <a class="navbar-brand" href="Home"><strong>DIGI</strong> Shop</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,9 +56,14 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Track Order</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Signup</a></li>
+                    <li><a href="TrackOrder">Track Order</a></li>
+                 <c:if test="${user != null}">
+   							<li  class="navbar-brand" >Hi, <c:out value="${user}"/></li>
+					</c:if>
+					<c:if test="${user == null}">  						
+					    <li><a href="Login">Login</a></li>
+                    	<li><a href="Signup">Signup</a></li>
+					</c:if>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">24x7 Support <b class="caret"></b></a>
@@ -72,110 +96,66 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="well well-lg offer-box text-center">
-
-
-                   Today's Offer : &nbsp; <span class="glyphicon glyphicon-cog"></span>&nbsp;40 % off  on purchase of $ 2,000 and above till 24 dec !                
-              
-               
+                   Today's Offer : &nbsp; <span class="glyphicon glyphicon-cog"></span>&nbsp;40 % off  on purchase of $ 2,000 and above till 24 dec !
                 </div>
-                <div class="main box-border">
-                    <div id="mi-slider" class="mi-slider">
-                        <ul>
+                 <div class="container marketing">
+    <h2 class="itemsTitle">Breakfast</h2>
+   <!--  -->
+   
+   
+   <c:if test="${not empty products}">
 
-                            <li><a href="ListShoes">
-                                <img src="assets/ItemSlider/images/1.jpg" alt="img01"><h4>Boots</h4>
-                            </a></li>
-                            <li><a href="ListChappels">
-                                <img src="assets/ItemSlider/images/2.jpg" alt="img02"><h4>Oxfords</h4>
-                            </a></li>
-                            <li><a href="ListLoafers">
-                                <img src="assets/ItemSlider/images/3.jpg" alt="img03"><h4>Loafers</h4>
-                            </a></li>
-                            <li><a href="ListSandels">
-                                <img src="assets/ItemSlider/images/4.jpg" alt="img04"><h4>Sneakers</h4>
-                            </a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="ListBelts">
-                                <img src="assets/ItemSlider/images/5.jpg" alt="img05"><h4>Belts</h4>
-                            </a></li>
-                            <li><a href="ListCaps">
-                                <img src="assets/ItemSlider/images/6.jpg" alt="img06"><h4>Hats &amp; Caps</h4>
-                            </a></li>
-                            <li><a href="ListSunglasses">
-                                <img src="assets/ItemSlider/images/7.jpg" alt="img07"><h4>Sunglasses</h4>
-                            </a></li>
-                            <li><a href="ListScarves">
-                                <img src="assets/ItemSlider/images/8.jpg" alt="img08"><h4>Scarves</h4>
-                            </a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="ListCasual">
-                                <img src="assets/ItemSlider/images/9.jpg" alt="img09"><h4>Casual</h4>
-                            </a></li>
-                            <li><a href="ListLuxury">
-                                <img src="assets/ItemSlider/images/10.jpg" alt="img10"><h4>Luxury</h4>
-                            </a></li>
-                            <li><a href="ListSport">
-                                <img src="assets/ItemSlider/images/11.jpg" alt="img11"><h4>Sport</h4>
-                            </a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="ListCarryOns">
-                                <img src="assets/ItemSlider/images/12.jpg" alt="img12"><h4>Carry-Ons</h4>
-                            </a></li>
-                            <li><a href="ListDuffel">
-                                <img src="assets/ItemSlider/images/13.jpg" alt="img13"><h4>Duffel Bags</h4>
-                            </a></li>
-                            <li><a href="ListLaptopBags">
-                                <img src="assets/ItemSlider/images/14.jpg" alt="img14"><h4>Laptop Bags</h4>
-                            </a></li>
-                            <li><a href="ListBriefcases">
-                                <img src="assets/ItemSlider/images/15.jpg" alt="img15"><h4>Briefcases</h4>
-                            </a></li>
-                        </ul>
-                        <nav>
-                            <a href="#">Shoes</a>
-                            <a href="#">Accessories</a>
-                            <a href="#">Watches</a>
-                            <a href="#">Bags</a>
-                        </nav>
-                    </div>
-                    
-                </div>
-                <br />
+		<ul>
+			<c:forEach var="product" items="${products}">
+				<li>${listValue}</li>
+			</c:forEach>
+		</ul>
+
+	</c:if>
+	
+	
+   
+    <div style="padding:50px 0;">
+        <div id="thumbnail-slider">
+            <div class="inner">
+                <ul>
+                    <li>
+					    <a class="thumb" href="assets/img/6.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="assets/img/7.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="assets/img/2.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="assets/img/3.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="assets/img/4.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="assets/img/5.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="assets/img/8.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="assets/img/9.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="assets/img/10.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="assets/img/11.jpg"></a>
+                    </li>
+                </ul>
             </div>
-            <!-- /.col -->
-            
-            <div class="col-md-3 text-center">
-                <div class=" col-md-12 col-sm-6 col-xs-6" >
-                    <div class="offer-text">
-                        30% off here
-                    </div>
-                    <div class="thumbnail product-box">
-                        <img src="assets/img/dummyimg.png" alt="" />
-                        <div class="caption">
-                            <h3><a href="#">Samsung Galaxy </a></h3>
-                            <p><a href="#">Ptional dismiss button </a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-md-12 col-sm-6 col-xs-6">
-                    <div class="offer-text2">
-                        30% off here
-                    </div>
-                    <div class="thumbnail product-box">
-                        <img src="assets/img/dummyimg.png" alt="" />
-                        <div class="caption">
-                            <h3><a href="#">Samsung Galaxy </a></h3>
-                            <p><a href="#">Ptional dismiss button </a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
+    </div>
+    
+    <!-- -->
+   
         <div class="row">
             <div class="col-md-3">
                 <div>

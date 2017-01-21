@@ -17,6 +17,23 @@
     <link href="<c:url value="/assets/ItemSlider/css/main-style.css" />" rel="stylesheet" />
     <!-- custom CSS here -->   
     <link href="<c:url value="/assets/css/style.css" />" rel="stylesheet" />
+    
+    
+        <!-- Bootstrap core CSS -->
+    
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="themes/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+    <!-- Custom styles for this template -->
+    
+    <link href="<c:url value="/assets/themes/assets/css/carousel.css" />" rel="stylesheet" />
+    
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -29,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><strong>DIGI</strong> Shop</a>
+                <a class="navbar-brand" href="Home"><strong>DIGI</strong> Shop</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,9 +54,14 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Track Order</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Signup</a></li>
+                    <li><a href="TrackOrder">Track Order</a></li>
+                 <c:if test="${user != null}">
+   							<li  class="navbar-brand" >Hi, <c:out value="${user}"/></li>
+					</c:if>
+					<c:if test="${user == null}">  						
+					    <li><a href="Login">Login</a></li>
+                    	<li><a href="Signup">Signup</a></li>
+					</c:if>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">24x7 Support <b class="caret"></b></a>
@@ -78,100 +100,78 @@
               
                
                 </div>
-                <div class="main box-border">
-                    <div id="mi-slider" class="mi-slider">
-                        <ul>
-
-                            <li><a href="ListShoes">
-                                <img src="assets/ItemSlider/images/1.jpg" alt="img01"><h4>Boots</h4>
-                            </a></li>
-                            <li><a href="ListChappels">
-                                <img src="assets/ItemSlider/images/2.jpg" alt="img02"><h4>Oxfords</h4>
-                            </a></li>
-                            <li><a href="ListLoafers">
-                                <img src="assets/ItemSlider/images/3.jpg" alt="img03"><h4>Loafers</h4>
-                            </a></li>
-                            <li><a href="ListSandels">
-                                <img src="assets/ItemSlider/images/4.jpg" alt="img04"><h4>Sneakers</h4>
-                            </a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="ListBelts">
-                                <img src="assets/ItemSlider/images/5.jpg" alt="img05"><h4>Belts</h4>
-                            </a></li>
-                            <li><a href="ListCaps">
-                                <img src="assets/ItemSlider/images/6.jpg" alt="img06"><h4>Hats &amp; Caps</h4>
-                            </a></li>
-                            <li><a href="ListSunglasses">
-                                <img src="assets/ItemSlider/images/7.jpg" alt="img07"><h4>Sunglasses</h4>
-                            </a></li>
-                            <li><a href="ListScarves">
-                                <img src="assets/ItemSlider/images/8.jpg" alt="img08"><h4>Scarves</h4>
-                            </a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="ListCasual">
-                                <img src="assets/ItemSlider/images/9.jpg" alt="img09"><h4>Casual</h4>
-                            </a></li>
-                            <li><a href="ListLuxury">
-                                <img src="assets/ItemSlider/images/10.jpg" alt="img10"><h4>Luxury</h4>
-                            </a></li>
-                            <li><a href="ListSport">
-                                <img src="assets/ItemSlider/images/11.jpg" alt="img11"><h4>Sport</h4>
-                            </a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="ListCarryOns">
-                                <img src="assets/ItemSlider/images/12.jpg" alt="img12"><h4>Carry-Ons</h4>
-                            </a></li>
-                            <li><a href="ListDuffel">
-                                <img src="assets/ItemSlider/images/13.jpg" alt="img13"><h4>Duffel Bags</h4>
-                            </a></li>
-                            <li><a href="ListLaptopBags">
-                                <img src="assets/ItemSlider/images/14.jpg" alt="img14"><h4>Laptop Bags</h4>
-                            </a></li>
-                            <li><a href="ListBriefcases">
-                                <img src="assets/ItemSlider/images/15.jpg" alt="img15"><h4>Briefcases</h4>
-                            </a></li>
-                        </ul>
-                        <nav>
-                            <a href="#">Shoes</a>
-                            <a href="#">Accessories</a>
-                            <a href="#">Watches</a>
-                            <a href="#">Bags</a>
-                        </nav>
-                    </div>
-                    
-                </div>
+                 <div class="container marketing">
+    <h2 class="itemsTitle">Breakfast</h2>
+	<div id="myCarousel1" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner">
+        <div class="item active">
+         <div class="row">
+        <div class="col-lg-4">
+         <a href="ProductDetail" role="button"> <img src="assets/themes/assets/images/salate.png" alt="Generic placeholder image"> </a>
+          <h4>Salates</h4>
+          <p><a class="btn btn-default" href="addOnCart" role="button">Add to cart &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+        <a href="ProductDetail" role="button">  <img src="assets/themes/assets/images/burger.png" alt="Generic placeholder image"> </a>
+          <h4>Meal</h4>
+          <p><a class="btn btn-default" href="addOnCart" role="button">Add to cart &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+         <a href="ProductDetail" role="button"> <img src="assets/themes/assets/images/drinks.png" alt="Generic placeholder image"></a>
+          <h4>Drink</h4>
+          <p><a class="btn btn-default" href="addOnCart" role="button">Add to cart &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+		 
+        </div>
+        <div class="item">
+         <div class="row">
+        <div class="col-lg-4">
+          <img src="assets/themes/assets/images/salate.png" alt="Generic placeholder image">
+          <h4>Salates</h4>
+          <p><a class="btn btn-default" href="addOnCart" role="button">Add to cart &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img src="assets/themes/assets/images/burger.png" alt="Generic placeholder image">
+          <h4>Meal</h4>
+          <p><a class="btn btn-default" href="addOnCart" role="button">Add to cart &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img src="assets/themes/assets/images/drinks.png" alt="Generic placeholder image">
+          <h4>Drink</h4>
+          <p><a class="btn btn-default" href="addOnCart" role="button">Add to cart &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+		 
+        </div>
+        <div class="item">
+          <div class="row">
+        <div class="col-lg-4">
+          <img  src="assets/themes/assets/images/salate.png" alt="Generic placeholder image">
+          <h4>Salates</h4>
+          <p><a class="btn btn-default" href="addOnCart" role="button">Add to cart &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img  src="assets/themes/assets/images/burger.png" alt="Generic placeholder image">
+          <h4>Meal</h4>
+          <p><a class="btn btn-default" href="addOnCart" role="button">Add to cart &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img  src="assets/themes/assets/images/drinks.png" alt="Generic placeholder image">
+          <h4>Drink</h4>
+          <p><a class="btn btn-default" href="addOnCart" role="button">Add to cart &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel1" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel1" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+	</div>
                 <br />
             </div>
             <!-- /.col -->
-            
-            <div class="col-md-3 text-center">
-                <div class=" col-md-12 col-sm-6 col-xs-6" >
-                    <div class="offer-text">
-                        30% off here
-                    </div>
-                    <div class="thumbnail product-box">
-                        <img src="assets/img/dummyimg.png" alt="" />
-                        <div class="caption">
-                            <h3><a href="#">Samsung Galaxy </a></h3>
-                            <p><a href="#">Ptional dismiss button </a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-md-12 col-sm-6 col-xs-6">
-                    <div class="offer-text2">
-                        30% off here
-                    </div>
-                    <div class="thumbnail product-box">
-                        <img src="assets/img/dummyimg.png" alt="" />
-                        <div class="caption">
-                            <h3><a href="#">Samsung Galaxy </a></h3>
-                            <p><a href="#">Ptional dismiss button </a></p>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- /.col -->
         </div>

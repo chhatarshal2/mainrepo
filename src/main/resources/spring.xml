@@ -9,7 +9,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:tpnew" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:tpone" />
 		<property name="username" value="scott" />
 		<property name="password" value="tiger" />
 	</bean>
@@ -38,6 +38,7 @@
 			<list>
 				<value>com.messenger.model.User</value>
 				<value>com.messenger.model.Product</value>
+				<value>com.messenger.model.Address</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -54,4 +55,11 @@
 	<bean id="personDAO" class="com.messenger.dao.GenericDAOImpl">
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
 	</bean>
+	
+	<bean id="cart" class="com.messenger.model.Cart" >
+	</bean>
+	
+	<bean id="user" class="com.messenger.model.User" >
+	</bean>
+	
 </beans>

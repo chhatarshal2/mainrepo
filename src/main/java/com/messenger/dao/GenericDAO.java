@@ -8,7 +8,7 @@ import com.messenger.model.Person;
 public interface  GenericDAO<T> {
 
 	public void save(T p);
-	
+	public void update(T p);
 	public List<T> list();
 	public T getObjectByProperty(T object);
 	public T getObjectByProperty(T object,T object2);
